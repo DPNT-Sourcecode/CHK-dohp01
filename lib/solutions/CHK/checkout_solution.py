@@ -33,23 +33,23 @@ free_offer_table = {
 
 def calculate_discounted_price(item, quantity):
     discounted_price_total = 0
-    quantity_counter = quantity
+    quantity_remaining = quantity
 
     for q, discounted_price in discount_table[item].items():    
-        remainder_q = quantity_counter % q
-        discounted_q = math.floor(quantity_counter / q)
+        discounted_q = math.floor(quantity_remaining / q)
         discounted_price_total += discounted_q * discounted_price
-        quantity_counter = remainder_q
+        quantity_remaining = quantity_remaining % q
 
-    return discounted_price_total, quantity_counter
+    return discounted_price_total, quantity_remaining
 
 
 def calculate_free_offers(item, quantity, basket):
     discount_total = 0
-    quantity_counter = quantity
+    quantity_remaining = quantity
 
     for q, free_items in free_offer_table[item].items():
-        remainder_q = quant
+        free_q = math.floor(quantity_remaining / q)
+        
 
     return 0
 
@@ -84,6 +84,7 @@ def checkout(skus):
             total_checkout_value -= discount_to_apply
 
     return total_checkout_value
+
 
 
 

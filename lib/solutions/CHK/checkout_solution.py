@@ -22,6 +22,11 @@ discount_table = {
 
 
 def calculate_discounted_price(item, quantity):
+    discounted_price = 0
+
+    for q, discounted_price in discount_table[item]:
+        
+
     non_discounted_quantity = quantity % discount_table[item]
     discounted_quantity = math.floor(quantity % discount_table[item])
     return non_discounted_quantity * price_table[item] + discounted_quantity * discount_table[item]
@@ -52,6 +57,7 @@ def checkout(skus):
             total_checkout_value += quantity * price_table[item]
 
     return total_checkout_value
+
 
 
 

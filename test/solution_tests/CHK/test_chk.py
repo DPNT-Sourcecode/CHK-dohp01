@@ -12,7 +12,7 @@ class TestChk():
         assert checkout_solution.checkout("C") == 20
 
     def test_multi(self):
-        assert checkout_solution.checkout("CD") == 20 + 15
+        assert checkout_solution.checkout("CCD") == 20 * 2 + 15
 
     def test_special_offer(self):
         assert checkout_solution.checkout("AAA") == 130
@@ -25,5 +25,6 @@ class TestChk():
 
     def test_multi_special_offer_and_others(self):
         assert checkout_solution.checkout("AAABBC") == 130 + 45 + 20
+
 
 

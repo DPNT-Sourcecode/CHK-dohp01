@@ -3,6 +3,7 @@
 # noinspection PyUnusedLocal
 # skus = unicode string
 import math
+import copy
 
 price_table = {
     "A": 50,
@@ -46,11 +47,11 @@ def calculate_discounted_price(item, quantity):
 def calculate_free_offers(item, quantity, basket):
     discount_price_total = 0
     quantity_remaining = quantity
-    basket_copy = basket
+    basket_copy = copy.deepcopy(basket)
 
     for q, free_items in free_offer_table[item].items():
         free_q = math.floor(quantity_remaining / q)
-        q_in_basket = {}
+        for free_item, free_quantity in free_offer_table[item][]
         discount_price_total += 
 
     return 0
@@ -86,6 +87,7 @@ def checkout(skus):
             total_checkout_value -= discount_to_apply
 
     return total_checkout_value
+
 
 
 

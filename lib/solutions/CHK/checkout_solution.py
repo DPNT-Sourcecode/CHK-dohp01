@@ -59,6 +59,7 @@ def calculate_free_offers(item, quantity, basket):
 
     for q, free_item_basket in free_offer_table[item].items():
         free_multiples = math.floor(quantity_remaining / q)
+        print(free_multiples)
         for free_item, free_quantity in free_item_basket.items():
             if free_item in basket:
                 q_to_discount = min(free_quantity * free_multiples, basket[free_item])
@@ -105,10 +106,5 @@ def checkout(skus):
 
 
     return total_checkout_value
-
-
-
-
-
 
 

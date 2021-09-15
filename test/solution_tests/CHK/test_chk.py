@@ -53,5 +53,8 @@ class TestChk():
     def test_buy_four_get_two_free(self):
         assert checkout_solution.checkout("FFFFFF") == 10 * 6 - 10 * 2
 
-    def test_buy_two_get_one_free(self):
-        assert checkout_solution.checkout("FFF") == 10 * 3 - 10
+    def test_buy_less_than_three_no_free(self):
+        assert checkout_solution.checkout("FF") == 10 * 2
+
+    def test_buy_three_get_only_one_free(self):
+        assert checkout_solution.checkout("FFFF") == 10 * 4 - 10

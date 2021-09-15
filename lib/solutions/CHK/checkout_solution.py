@@ -20,4 +20,19 @@ discount_table = {
 }
 
 def checkout(skus):
+    basket = {}
+    total_checkout_value = 0
+
+    for item in skus:
+        if item not in basket:
+            basket[item] = 1
+        else:
+            basket[item] += 1
     
+    for item, quantity in basket:
+        if item not in price_table:
+            return -1
+        
+        
+
+

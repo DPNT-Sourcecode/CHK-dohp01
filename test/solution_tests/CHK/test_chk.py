@@ -2,5 +2,8 @@ from solutions.CHK import checkout_solution
 
 
 class TestChk():
-    def test_sum(self):
-        assert checkout_solution.compute(1, 2) == 3
+    def test_illegal(self):
+        assert checkout_solution.checkout("E") == -1
+
+    def test_(self):
+        assert checkout_solution.checkout("C") == -1

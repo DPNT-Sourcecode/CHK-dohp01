@@ -53,14 +53,11 @@ def calculate_free_offers(item, quantity, basket):
         free_multiples = math.floor(quantity_remaining / q)
         for free_item, free_quantity in free_item_basket.items():
             if free_item in basket_copy:
-                print(free_multiples, free_item, free_quantity)
                 q_to_discount = max(free_quantity * free_multiples, basket_copy[free_item])
-                print(q_to_discount)
                 discounted_price_total += q_to_discount * price_table[free_item]
                 basket_copy[free_item] -= q_to_discount
 
-    print(discounted_price_total)
-    return discounted_price_total
+    return discounted_price_total, basket_copy
 
 
 def checkout(skus):
@@ -79,19 +76,23 @@ def checkout(skus):
     for item, quantity in basket.items():
         if item not in price_table:
             return -1
-        
-        quantity_remaining = quantity
 
-        if item in discount_table:
-            discounted_price, quantity_remaining = calculate_discounted_price(item, quantity)
-            total_checkout_value += discounted_price
-        
-        total_checkout_value += quantity_remaining * price_table[item]
-
+    for item, quantity in basket.items():
         if item in free_offer_table:
             discount_to_apply = calculate_free_offers(item, quantity, basket)
             total_checkout_value -= discount_to_apply
 
+        
+    for item, quantity in basket.items():
+        quantity_remaining = quantity
+
+        if item in discount_table:
+            discounted_price, quantity_remaining = calculate_discounted_price(item, quantity, basket)
+            total_checkout_value += discounted_price
+        
+        total_checkout_value += quantity_remaining * price_table[item]
+
     return total_checkout_value
+
 
 

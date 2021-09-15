@@ -17,5 +17,5 @@ class TestChk():
     def test_multi_special_offer(self):
         assert checkout_solution.checkout("AAABB") == 130 + 45
 
-    def test_multi_special_offer_(self):
-        assert checkout_solution.checkout("AAABB") == 130 + 45        
+    def test_multi_special_offer_and_others(self):
+        assert checkout_solution.checkout("AAABBC") == 130 + 45 + 20

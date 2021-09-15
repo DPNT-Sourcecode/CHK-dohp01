@@ -17,12 +17,19 @@ class TestChk():
     def test_special_offer(self):
         assert checkout_solution.checkout("AAA") == 130
 
-    def test_special_offer_thrice(self):
-        assert checkout_solution.checkout("AAAAAAAAA") == 130 * 3
+    def test_special_offer_more(self):
+        assert checkout_solution.checkout("AAAAA") == 200
+
+    def test_special_offer_triple(self):
+        assert checkout_solution.checkout("AAAAAAAAAAAAAAA") == 200 * 3
+
+    def test_special_offer_varied(self):
+        assert checkout_solution.checkout("AAAAAAAAA") == 200 + 130 + 50
 
     def test_multi_special_offer(self):
         assert checkout_solution.checkout("AAABB") == 130 + 45
 
     def test_multi_special_offer_and_others(self):
         assert checkout_solution.checkout("AAABBC") == 130 + 45 + 20
+
 

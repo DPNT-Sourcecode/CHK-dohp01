@@ -11,6 +11,7 @@ price_table = {
     "C": 20,
     "D": 15,
     "E": 40,
+    "F": 10,
 }
 
 discount_table = {
@@ -27,6 +28,11 @@ free_offer_table = {
     "E": {
         2: {
             "B": 1
+        }
+    },
+    "F": {
+        2: {
+            "F": 1
         }
     }
 }

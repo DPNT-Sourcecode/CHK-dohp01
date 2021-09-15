@@ -46,3 +46,12 @@ class TestChk():
 
     def test_two_of_each_item(self):
         assert checkout_solution.checkout("ABCDEABCDE") == 2*50 + 30 + 2*20 + 2*15 + 2*40
+
+    def test_buy_two_get_one_free(self):
+        assert checkout_solution.checkout("FFF") == 10 * 3 - 10
+
+    def test_buy_four_get_two_free(self):
+        assert checkout_solution.checkout("FFFFFF") == 10 * 6 - 10 * 2
+
+    def test_buy_two_get_one_free(self):
+        assert checkout_solution.checkout("FFF") == 10 * 3 - 10

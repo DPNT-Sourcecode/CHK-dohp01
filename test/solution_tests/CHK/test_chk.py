@@ -40,3 +40,9 @@ class TestChk():
 
     def test_special_offer_two_free(self):
         assert checkout_solution.checkout("EEEEBB") == 40 * 4
+
+    def test_one_of_each_item(self):
+        assert checkout_solution.checkout("ABCDE") == 50 + 30 + 20 + 15 + 40
+
+    def test_two_of_each_item(self):
+        assert checkout_solution.checkout("ABCDEABCDE") == 2*50 + 30 + 2*20 + 2*15 + 2*40

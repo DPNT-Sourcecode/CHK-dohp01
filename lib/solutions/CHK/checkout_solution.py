@@ -33,6 +33,7 @@ free_offer_table = {
 
 
 def calculate_discounted_price(item, quantity):
+    """calculates discount to be applied, and remaining quantity of items where discount doesn't apply"""
     discounted_price_total = 0
     quantity_remaining = quantity
 
@@ -45,6 +46,8 @@ def calculate_discounted_price(item, quantity):
 
 
 def calculate_free_offers(item, quantity, basket):
+    """removes discounted items from basket"""
+
     discounted_price_total = 0
     quantity_remaining = quantity
 
@@ -56,7 +59,7 @@ def calculate_free_offers(item, quantity, basket):
                 discounted_price_total += q_to_discount * price_table[free_item]
                 basket[free_item] -= q_to_discount
 
-    return discounted_price_total
+    return None
 
 
 def checkout(skus):
@@ -72,15 +75,17 @@ def checkout(skus):
         else:
             basket[item] += 1
 
-    for item, quantity in basket_remaining.items():
-        if item in free_offer_table:
-            discount_to_apply = calculate_free_offers(item, quantity, basket_remaining)
-            total_checkout_value -= discount_to_apply
-
     for item, quantity in basket.items():
         if item not in price_table:
             return -1
 
+    basket_remaining = copy.deepcopy(basket)
+
+    for item, quantity in basket_remaining.items():
+        if item in free_offer_table:
+            calculate_free_offers(item, quantity, basket_remaining)
+
+    for item, quantity in basket_remaining.items():
         quantity_remaining = quantity
 
         if item in discount_table:
@@ -89,13 +94,10 @@ def checkout(skus):
         
         total_checkout_value += quantity_remaining * price_table[item]
 
-    basket_remaining = copy.deepcopy(basket)
-    print(basket_remaining)
-    print(total_checkout_value)
-
 
 
     return total_checkout_value
+
 
 
 

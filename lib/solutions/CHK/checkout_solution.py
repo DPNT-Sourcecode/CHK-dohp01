@@ -46,9 +46,18 @@ discount_table = {
         10: 80,
         5: 45,
     },
-        "A": {
+    "K": {
+        2: 150,
+    },
+    "P": {
         5: 200,
+    },
+    "Q": {
+        3: 80,
+    },
+    "V": {
         3: 130,
+        2: 90,
     },
 }
 
@@ -62,6 +71,21 @@ free_offer_table = {
         3: { # buy 2F, (needs to be quantity + quantity of free, ie. 2+1)
             "F": 1, # get one F free
         }
+    },
+    "N": {
+        3: {
+            "M": 1,
+        },
+    },
+    "R": {
+        3: {
+            "Q": 1,
+        },
+    },
+    "U": {
+        3: {
+            "U": 1,
+        },
     },
 }
 
@@ -134,6 +158,7 @@ def checkout(skus):
 
 
     return total_checkout_value
+
 
 
 

@@ -2,8 +2,8 @@ from solutions.CHK import checkout_solution
 
 
 class TestChk():
-    def test_illegal(self):
-        assert checkout_solution.checkout("E") == -1
+    def test_empty(self):
+        assert checkout_solution.checkout("") == -1
 
     def test_illegal(self):
         assert checkout_solution.checkout("E") == -1
@@ -25,4 +25,5 @@ class TestChk():
 
     def test_multi_special_offer_and_others(self):
         assert checkout_solution.checkout("AAABBC") == 130 + 45 + 20
+
 

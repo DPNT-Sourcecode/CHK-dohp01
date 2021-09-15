@@ -49,12 +49,14 @@ def calculate_free_offers(item, quantity, basket):
     quantity_remaining = quantity
     basket_copy = copy.deepcopy(basket)
 
-    for q, free_items in free_offer_table[item].items():
+    for q, free_item_basket in free_offer_table[item].items():
         free_q = math.floor(quantity_remaining / q)
-        for free_item, free_quantity in free_offer_table[item][q].items():
+        for free_item, free_quantity in free_item_basket.items():
             if free_item in basket_copy:
-                q_to_discount = max(free_quantity, basket_copy[free_item])
-                discounted_price_total += q_to_discount * price_table[free_item]
+                print(free_q, free_item, free_quantity)
+                q_to_discount = max(free_quantity * free_q, basket_copy[free_item])
+                print(q_to_discount)
+                discounted_price_total += q_to_discount * free_q * price_table[free_item]
                 basket_copy[free_item] -= q_to_discount
 
     return discounted_price_total
@@ -90,6 +92,7 @@ def checkout(skus):
             total_checkout_value -= discount_to_apply
 
     return total_checkout_value
+
 
 
 

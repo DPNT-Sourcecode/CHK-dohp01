@@ -36,7 +36,7 @@ def calculate_discounted_price(item, quantity):
 
 def checkout(skus):
     if len(skus) == 0:
-        return -1
+        return 0
 
     basket = {}
     total_checkout_value = 0
@@ -62,6 +62,7 @@ def checkout(skus):
         total_checkout_value += quantity_remaining * price_table[item]
 
     return total_checkout_value
+
 
 
 

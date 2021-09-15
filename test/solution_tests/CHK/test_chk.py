@@ -3,7 +3,7 @@ from solutions.CHK import checkout_solution
 
 class TestChk():
     def test_empty(self):
-        assert checkout_solution.checkout("") == -1
+        assert checkout_solution.checkout("") == 0
 
     def test_illegal(self):
         assert checkout_solution.checkout("E") == -1

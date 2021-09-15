@@ -26,13 +26,13 @@ discount_table = {
 
 free_offer_table = {
     "E": {
-        2: {
-            "B": 1
+        2: { # buy 2E,
+            "B": 1, # get one B free
         }
     },
     "F": {
-        2: {
-            "F": 1
+        3: { # buy 2F, (needs to be quantity + quantity of free)
+            "F": 1, # get one F free
         }
     }
 }
@@ -106,5 +106,6 @@ def checkout(skus):
 
 
     return total_checkout_value
+
 
 

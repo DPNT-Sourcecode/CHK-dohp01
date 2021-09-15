@@ -67,7 +67,12 @@ def checkout(skus):
         
         total_checkout_value += quantity_remaining * price_table[item]
 
+        if item in free_offer_table:
+            discount_to_apply = calculate_free_offers(item, quantity)
+            total_checkout_value -= discount_to_apply
+
     return total_checkout_value
+
 
 
 

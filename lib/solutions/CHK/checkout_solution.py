@@ -83,7 +83,7 @@ free_offer_table = {
         },
     },
     "U": {
-        3: {
+        4: {
             "U": 1,
         },
     },
@@ -158,6 +158,7 @@ def checkout(skus):
 
 
     return total_checkout_value
+
 
 
 

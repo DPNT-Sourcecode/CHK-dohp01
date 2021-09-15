@@ -9,10 +9,12 @@ price_table = {
     "B": 30,
     "C": 20,
     "D": 15,
+    "E": 40,
 }
 
 discount_table = {
     "A": {
+        5: 200,
         3: 130,
     },
     "B": {
@@ -62,6 +64,7 @@ def checkout(skus):
         total_checkout_value += quantity_remaining * price_table[item]
 
     return total_checkout_value
+
 
 
 

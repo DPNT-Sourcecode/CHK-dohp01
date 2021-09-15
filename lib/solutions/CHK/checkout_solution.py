@@ -31,7 +31,7 @@ free_offer_table = {
         }
     },
     "F": {
-        3: { # buy 2F, (needs to be quantity + quantity of free)
+        3: { # buy 2F, (needs to be quantity + quantity of free, ie. 2+1)
             "F": 1, # get one F free
         }
     }
@@ -106,6 +106,7 @@ def checkout(skus):
 
 
     return total_checkout_value
+
 
 
 

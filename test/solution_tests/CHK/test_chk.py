@@ -25,6 +25,3 @@ class TestChk():
 
     def test_multi_special_offer_and_others(self):
         assert checkout_solution.checkout("AAABBC") == 130 + 45 + 20
-
-
-

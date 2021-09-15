@@ -27,9 +27,13 @@ def calculate_discounted_price(item, quantity):
 
     for q, discounted_price in discount_table[item].items():    
         remainder_q = quantity_counter % q
+        print(remainder_q)
         discounted_q = math.floor(quantity_counter / q)
+        print(discounted_q)
         discounted_price += discounted_q * discounted_price
         quantity_counter = remainder_q
+        print(discounted_price)
+        print(quantity_counter)
 
     return discounted_price, quantity_counter
 
@@ -62,6 +66,7 @@ def checkout(skus):
         total_checkout_value += quantity_remaining * price_table[item]
 
     return total_checkout_value
+
 
 
 

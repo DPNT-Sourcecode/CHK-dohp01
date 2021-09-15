@@ -33,6 +33,8 @@ def checkout(skus):
         if item not in price_table:
             return -1
         
-        
+        if item in discount_table:
+            quantity % discount_table[item]
+
 
 

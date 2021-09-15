@@ -2,6 +2,7 @@
 
 # noinspection PyUnusedLocal
 # skus = unicode string
+import math
 
 price_table = {
     "A": 50,
@@ -34,7 +35,12 @@ def checkout(skus):
             return -1
         
         if item in discount_table:
-            quantity % discount_table[item]
+            non_discounted_quantity = quantity % discount_table[item]
+            discounted_quantity = math.floor(quantity % discount_table[item])
+            total_checkout_value += non_discounted_quantity * price_table[item] + discounted_quantity * discount_table[item]
+
+    return total_checkout_value
+
 
 
 

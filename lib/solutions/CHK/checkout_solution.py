@@ -22,7 +22,11 @@ discount_table = {
     }
 }
 
-free
+free_offer_table = {
+    "E": {
+        2: "B"
+    }
+}
 
 
 def calculate_discounted_price(item, quantity):
@@ -64,5 +68,6 @@ def checkout(skus):
         total_checkout_value += quantity_remaining * price_table[item]
 
     return total_checkout_value
+
 
 

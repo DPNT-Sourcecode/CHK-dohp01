@@ -22,6 +22,8 @@ discount_table = {
     }
 }
 
+free
+
 
 def calculate_discounted_price(item, quantity):
     discounted_price_total = 0
@@ -48,8 +50,6 @@ def checkout(skus):
             basket[item] = 1
         else:
             basket[item] += 1
-
-    print(basket)
     
     for item, quantity in basket.items():
         if item not in price_table:
@@ -64,11 +64,5 @@ def checkout(skus):
         total_checkout_value += quantity_remaining * price_table[item]
 
     return total_checkout_value
-
-
-
-
-
-
 
 

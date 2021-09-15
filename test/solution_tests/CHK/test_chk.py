@@ -32,4 +32,11 @@ class TestChk():
     def test_multi_special_offer_and_others(self):
         assert checkout_solution.checkout("AAABBC") == 130 + 45 + 20
 
+    def test_special_offer_one_free(self):
+        assert checkout_solution.checkout("EEB") == 40 * 2
 
+    def test_special_offer_one_free_again(self):
+        assert checkout_solution.checkout("EEEB") == 40 * 3
+
+    def test_special_offer_two_free(self):
+        assert checkout_solution.checkout("EEEEBB") == 40 * 4

@@ -6,7 +6,7 @@ class TestChk():
         assert checkout_solution.checkout("") == 0
 
     def test_illegal(self):
-        assert checkout_solution.checkout("Z") == -1
+        assert checkout_solution.checkout("z") == -1
 
     def test_single(self):
         assert checkout_solution.checkout("C") == 20

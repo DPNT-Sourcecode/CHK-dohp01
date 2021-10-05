@@ -58,3 +58,6 @@ class TestChk():
 
     def test_buy_three_get_only_one_free(self):
         assert checkout_solution.checkout("FFFF") == 10 * 4 - 10
+
+    def test_group_discount(self):
+        assert checkout_solution.checkout("SSS")

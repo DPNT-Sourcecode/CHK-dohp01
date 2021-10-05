@@ -89,9 +89,13 @@ free_offer_table = {
     },
 }
 
-group_discount_table = {
-    
-}
+group_discount_table = [
+    {
+        "items": ["S", "T", "X", "Y", "Z"],
+        "price": 45,
+        "quantity": 3,
+    },
+]
 
 
 def calculate_discounted_price(item, quantity):

@@ -75,4 +75,10 @@ class TestChk():
         assert checkout_solution.checkout("STXSTX") == 45 * 2
 
     def test_group_discount_different_items_favour_customer(self):
-        assert checkout_solution.checkout("STYZX") == 45 + 
+        assert checkout_solution.checkout("STYZX") == 45 + 16 + 20
+
+    def test_group_discount_different_items_favour_customer_ordering(self):
+        assert checkout_solution.checkout("ZXSTY") == 45 + 16 + 20
+
+    def test_group_discount_different_items_and_others(self):
+        assert checkout_solution.checkout("STYZX") == 45 + 16 + 20

@@ -59,6 +59,9 @@ class TestChk():
     def test_buy_three_get_only_one_free(self):
         assert checkout_solution.checkout("FFFF") == 10 * 4 - 10
 
+    def test_group_discount_same_item_insufficient(self):
+        assert checkout_solution.checkout("SS") == 20 * 2
+
     def test_group_discount_same_item(self):
         assert checkout_solution.checkout("SSS") == 45
 

@@ -89,6 +89,10 @@ free_offer_table = {
     },
 }
 
+group_discount_table = {
+    
+}
+
 
 def calculate_discounted_price(item, quantity):
     """calculates discount to be applied, and remaining quantity of items where discount doesn't apply"""
@@ -158,6 +162,7 @@ def checkout(skus):
 
 
     return total_checkout_value
+
 
 
 

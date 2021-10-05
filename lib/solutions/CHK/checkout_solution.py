@@ -129,7 +129,8 @@ def calculate_free_offers(item, quantity, basket):
     return None
 
 
-def calculate_group_discount(group_discount, basket_remaining, total_checkout_value):
+def calculate_group_discount(group_discount, basket_remaining):
+    subtotal_checkout_value = 0
     sub_basket = [ {"item_code": item, "quantity" : quantity, "price": price_table[item]} for item, quantity in basket_remaining.items() if item in group_discount["items"] ]
     price_sorted_sub_basket = sorted(sub_basket, key=lambda x: x["price"], reverse=True)
 
@@ -151,11 +152,12 @@ def calculate_group_discount(group_discount, basket_remaining, total_checkout_va
                     basket_remaining[item["item_code"]] -= 1
                     break
 
-        print(price_sorted_sub_basket)
-        total_checkout_value += group_discount["price"]
+        # print(price_sorted_sub_basket)
+        subtotal_checkout_value += group_discount["price"]
 
-    print(basket_remaining)
-    print(total_checkout_value)
+    # print(basket_remaining)
+    # print(subtotal_checkout_value)
+    return subtotal_checkout_value
 
 
 def checkout(skus):
@@ -184,7 +186,7 @@ def checkout(skus):
     print(basket_remaining)
 
     for group_discount in group_discount_table:
-        calculate_group_discount(group_discount, basket_remaining, total_checkout_value)
+        total_checkout_value += calculate_group_discount(group_discount, basket_remaining)
 
     print(basket_remaining)
 
@@ -200,6 +202,7 @@ def checkout(skus):
 
 
     return total_checkout_value
+
 
 
 

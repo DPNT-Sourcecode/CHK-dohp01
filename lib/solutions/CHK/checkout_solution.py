@@ -154,8 +154,9 @@ def checkout(skus):
 
     print(basket_remaining)
 
-    for item, quantity in basket_remaining.items():
-        
+    for group_discount in group_discount_table:
+        calculate_group_discount(group_discount, )
+
 
     print(basket_remaining)
 
@@ -171,5 +172,6 @@ def checkout(skus):
 
 
     return total_checkout_value
+
 
 

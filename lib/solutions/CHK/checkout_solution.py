@@ -136,7 +136,10 @@ def calculate_group_discount(group_discount, basket_remaining, total_checkout_va
 
     sufficient_items_remaining = True
     while sufficient_items_remaining:
-        group_quantity = group_discount[]
+        group_quantity = group_discount["quantity"]
+        group_found = False
+        for i in range(group_quantity):
+            
 
 
 
@@ -182,11 +185,5 @@ def checkout(skus):
 
 
     return total_checkout_value
-
-
-
-
-
-
 
 

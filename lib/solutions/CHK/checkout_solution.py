@@ -131,8 +131,13 @@ def calculate_free_offers(item, quantity, basket):
 
 def calculate_group_discount(group_discount, basket_remaining, total_checkout_value):
     sub_basket = [ {"item": item, "quantity" : quantity, "price": price_table[item]} for item, quantity in basket_remaining.items() if item in group_discount["items"] ]
-    price_sorted_sub_basket = sorted(sub_basket, key=lambda x)
-    print(sub_basket)
+    price_sorted_sub_basket = sorted(sub_basket, key=lambda x: x["price"], reverse=True)
+    print(price_sorted_sub_basket)
+
+    sufficient_items_remaining = True
+    while sufficient_items_remaining:
+        group_quantity = group_discount[]
+
 
 
 def checkout(skus):
@@ -177,6 +182,7 @@ def checkout(skus):
 
 
     return total_checkout_value
+
 
 
 

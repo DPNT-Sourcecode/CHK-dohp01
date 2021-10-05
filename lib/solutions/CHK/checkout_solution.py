@@ -155,6 +155,11 @@ def checkout(skus):
     print(basket_remaining)
 
     for item, quantity in basket_remaining.items():
+        
+
+    print(basket_remaining)
+
+    for item, quantity in basket_remaining.items():
         quantity_remaining = quantity
 
         if item in discount_table:

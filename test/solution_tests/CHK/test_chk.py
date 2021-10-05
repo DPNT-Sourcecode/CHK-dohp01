@@ -59,5 +59,20 @@ class TestChk():
     def test_buy_three_get_only_one_free(self):
         assert checkout_solution.checkout("FFFF") == 10 * 4 - 10
 
-    def test_group_discount(self):
-        assert checkout_solution.checkout("SSS")
+    def test_group_discount_same_item(self):
+        assert checkout_solution.checkout("SSS") == 45
+
+    def test_group_discount_same_item_extra(self):
+        assert checkout_solution.checkout("SSSSS") == 45 + 20 * 2
+
+    def test_group_discount_same_item_2_groups(self):
+        assert checkout_solution.checkout("SSSSSS") == 45 * 2
+
+    def test_group_discount_different_items(self):
+        assert checkout_solution.checkout("STX") == 45
+
+    def test_group_discount_different_items(self):
+        assert checkout_solution.checkout("STXSTX") == 45 * 2
+
+    def test_group_discount_different_items_favour_customer(self):
+        assert checkout_solution.checkout("STYZX") == 45 + 

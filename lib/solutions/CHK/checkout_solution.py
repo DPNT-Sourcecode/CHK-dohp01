@@ -135,14 +135,15 @@ def calculate_group_discount(group_discount, basket_remaining, total_checkout_va
 
     sufficient_items_remaining = True
     while sufficient_items_remaining:
-        group_quantity_remaining = group_discount["quantity"]
         total_remaining = sum([item["quantity"] for item in price_sorted_sub_basket])
 
-        if total_remaining < group_quantity_remaining:
+        if total_remaining < group_discount["quantity"]:
             sufficient_items_remaining = False
             break
 
-        for _ in range(group_quantity_remaining):
+        # remove a group of items of number (group_discount["quantity"])
+        # from both sorted sub basket and basket_remaining
+        for _ in range(group_discount["quantity"]):
             for item in price_sorted_sub_basket:
                 print(price_sorted_sub_basket)
                 if item["quantity"] > 0:
@@ -152,6 +153,9 @@ def calculate_group_discount(group_discount, basket_remaining, total_checkout_va
 
         print(price_sorted_sub_basket)
         total_checkout_value += group_discount["price"]
+
+    print(basket_remaining)
+    print(total_checkout_value)
 
 
 def checkout(skus):
@@ -196,6 +200,7 @@ def checkout(skus):
 
 
     return total_checkout_value
+
 
 
 

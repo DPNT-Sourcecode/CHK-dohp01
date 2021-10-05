@@ -130,8 +130,8 @@ def calculate_free_offers(item, quantity, basket):
 
 
 def calculate_group_discount(group_discount, basket_remaining, total_checkout_value):
-    sub_basket = { item : quantity for item, quantity in basket_remaining.items() if item in group_discount["items"] }
-    sorted_price_order_sub_basket = []
+    sub_basket = [ {"item": item, "quantity" : quantity, "price": price_table[item]} for item, quantity in basket_remaining.items() if item in group_discount["items"] ]
+    price_sorted_sub_basket = sorted(sub_basket, key=lambda x)
     print(sub_basket)
 
 
@@ -177,6 +177,7 @@ def checkout(skus):
 
 
     return total_checkout_value
+
 
 
 
